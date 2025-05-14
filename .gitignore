@@ -10,7 +10,9 @@ __pycache__
 /model/*/
 !/model/
 
-weather
+# test_mcp/weather
+# test_mcp/mcp-client
+
 test_rag/chroma_langchain_db
 
 all.ipynb

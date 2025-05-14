@@ -13,7 +13,7 @@ from typing import List
 
 
 # 超参数
-MODEL_PATH = '../model/BAAI/bge-m3'
+MODEL_PATH = '../../model/BAAI/bge-m3'
 
 
 embd_model = {}
