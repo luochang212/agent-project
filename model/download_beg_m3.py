@@ -1,11 +1,10 @@
 # USAGE: python download_qwen.py
-# URL: https://www.modelscope.cn/models/Qwen/Qwen3-4B-FP8
+# URL: https://www.modelscope.cn/models/BAAI/bge-m3
 
 from modelscope import snapshot_download
 
 model_dir = snapshot_download(
-    # 'Qwen/Qwen3-0.6B-FP8',
-    'Qwen/Qwen3-4B-FP8',
+    'BAAI/bge-m3',
     cache_dir='./'
 )
 

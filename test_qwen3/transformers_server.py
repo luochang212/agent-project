@@ -6,8 +6,6 @@
 #   - https://platform.openai.com/docs/api-reference/chat/create
 #   - https://github.com/openai/openai-quickstart-python
 #   - https://fastapi.tiangolo.com/advanced/events/
-# USAGE: 
-#   python3 transformers_server.py
 
 import os
 import collections

@@ -10,4 +10,7 @@ __pycache__
 /model/*/
 !/model/
 
+weather
+test_rag/chroma_langchain_db
+
 all.ipynb

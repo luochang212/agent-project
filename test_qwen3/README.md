@@ -6,7 +6,10 @@
 .
 ├── 1.transformers.ipynb
 ├── 2.vllm.ipynb
+├── 3.beg-m3.ipynb
 ├── README.md
+├── embedding_client.py
+├── embedding_server.py
 ├── transformers_client.py
 ├── transformers_server.py
 ├── vllm_client.py
@@ -15,8 +18,8 @@
 
 其中，
 
-- `1.transformers.ipynb`: 简单使用 transformers 做 Qwen3 模型推理
-- `2.vllm.ipynb`: 简单使用 vllm 做 Qwen3 模型推理
+- `1.transformers.ipynb`: 使用 transformers 做 Qwen3 模型推理
+- `2.vllm.ipynb`: 使用 vllm 做 Qwen3 模型推理
 - `transformers_client.py`: transformers 客户端
 - `transformers_server.py`: transformers 服务端启动脚本
 - `vllm_client.py`: vllm 客户端
