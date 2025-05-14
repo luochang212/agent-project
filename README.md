@@ -16,7 +16,7 @@ MCP 只是 LLMs 生态中的一环，实现 MCP 需要多种前置服务的支�
    - 使用 qwen3, bge-m3 推理服务
    - 使用 chroma 作为向量数据库
 3. **简单的 MCP** ([/test_mcp](/test_mcp)):
-   - 参考 anthropic 官方 MCP 教程，开发简单的 MCP Server 和 MCP Client
+   - 参考 anthropic 官方 MCP 教程，开发 MCP Server 和 MCP Client
 4. **简单的 Qwen Agent** ([/test_qwen_agent](/test_qwen_agent)):
    - to do ...
 
