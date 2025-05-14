@@ -6,6 +6,8 @@ MCP 研究性开发计划
 
 MCP 只是 LLMs 生态中的一环，要实现 MCP 需要多种服务支持。为了搭建这些可能我也很陌生的服务，我像 Agent 一样，将任务拆分成多个子任务，分别进行预研。
 
+预研项目列表：
+
 - **MCP** ([/test_mcp](/test_mcp)): 根据 anthropic 官方 MCP 教程，开发 MCP Server 和 MCP Client
 - **Qwen3** ([/test_qwen3](/test_qwen3)): 
     - 基于 vllm 开发 qwen3 推理服务
