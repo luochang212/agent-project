@@ -13,6 +13,8 @@ __pycache__
 # test_mcp/weather
 # test_mcp/mcp-client
 
+test_qwen_agent/test.db
+
 test_rag/chroma_langchain_db
 
 all.ipynb

@@ -1,11 +1,6 @@
 # 开发简单的 MCP Server 和 MCP Client
 
-文件结构如下：
-
-```
-
-```
-
+Anthropic 的 MCP 代码与 Claude AI 深度绑定，缺少 `API_KEY` 无法运行，仅作为学习使用。
 
 参考：
 
