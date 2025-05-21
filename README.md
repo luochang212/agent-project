@@ -18,7 +18,7 @@ MCP 只是 LLMs 生态中的一环，实现 MCP 需要多种前置服务的支�
 3. **简单的 MCP** ([/test_mcp](/test_mcp)):
    - 参考 anthropic 官方 MCP 教程，开发 MCP Server 和 MCP Client
 4. **简单的 Qwen Agent** ([/test_qwen_agent](/test_qwen_agent)):
-   - 对 sqlite 进行 CRUD
+   - 对 sqlite 进行 CRUD 操作
    - 对 Redis 进行 CRUD 操作
    - 查询 postgresql 数据库
    - 使用 Qwen Agent 调用 FastAPI
