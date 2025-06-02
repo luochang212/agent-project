@@ -11,9 +11,10 @@ GitHub: [QwenLM/Qwen-Agent](https://github.com/QwenLM/Qwen-Agent)
 ├── 1.llm.ipynb
 ├── 2.sqlite_bot.ipynb
 ├── 3.postgresql_bot.ipynb
-├── 4.redis_bot.ipynb
-├── 5.fastapi_bot.ipynb
-├── 6.orchestrating_multiple_agents.ipynb
+├── 4.mysql_bot.ipynb
+├── 5.redis_bot.ipynb
+├── 6.fastapi_bot.ipynb
+├── 7.orchestrating_multiple_agents.ipynb
 ├── README.md
 ├── assistant_mcp_sqlite_bot.py
 ├── fastapi_mcp_server.py
@@ -36,6 +37,7 @@ GitHub: [QwenLM/Qwen-Agent](https://github.com/QwenLM/Qwen-Agent)
 - `1.llm.ipynb`: 使用 Qwen Agent 连接本地 vLLM 模型服务
 - `2.sqlite_bot.ipynb`: 使用 Qwen Agent 对 sqlite 进行 CRUD 操作
 - `3.postgresql_bot.ipynb`: 使用 Qwen Agent 查询 postgresql 数据库
-- `4.redis_bot.ipynb`: 使用 Qwen Agent 对 Redis 进行 CRUD 操作
-- `5.fastapi_bot.ipynb`: 使用 Qwen Agent 调用 FastAPI
-- `6.orchestrating_multiple_agents.ipynb`: 运行 Qwen Agent 模型编排 Demo
+- `4.mysql_bot.ipynb`: 使用 Qwen Agent 查询 MySQL 数据库
+- `5.redis_bot.ipynb`: 使用 Qwen Agent 对 Redis 进行 CRUD 操作
+- `6.fastapi_bot.ipynb`: 使用 Qwen Agent 调用 FastAPI
+- `7.orchestrating_multiple_agents.ipynb`: 运行 Qwen Agent 模型编排 Demo

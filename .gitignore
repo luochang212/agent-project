@@ -10,6 +10,8 @@ __pycache__
 /model/*/
 !/model/
 
+archived
+
 # test_mcp/weather
 # test_mcp/mcp-client
 
@@ -17,5 +19,9 @@ test_qwen_agent/test.db
 test_qwen_agent/workspace
 
 test_rag/chroma_langchain_db
+
+test_copilotkit/my-copilot-app
+
+proj_arxiv
 
 all.ipynb

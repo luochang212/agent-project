@@ -4,7 +4,7 @@ MCP 实战
 
 ## 预研计划
 
-MCP 只是 LLMs 生态中的一环，实现 MCP 需要多种前置服务的支持（比如 vLLM, LangChain）。 为了事先了解这些可能我也很陌生的服务，我必须像 Agent 一样，将任务拆分成多个子任务，再逐个进行预研。
+[MCP](https://github.com/modelcontextprotocol/servers) 只是 LLMs 生态中的一环，实现 MCP 需要多种前置服务的支持（比如 vLLM, LangChain）。为了事先了解这些可能我也很陌生的服务，我必须像 Agent 一样，将任务拆分成多个子任务，再逐个进行预研。
 
 本仓库的预研项目如下：
 
@@ -13,14 +13,15 @@ MCP 只是 LLMs 生态中的一环，实现 MCP 需要多种前置服务的支�
    - 基于 Ollama 开发 bge-m3 文本 embedding 推理服务
 2. **简单的 RAG** ([/test_rag](/test_rag)):
    - 基于 LangChain 开发 RAG
-   - 使用 qwen3, bge-m3 推理服务
+   - 开发 bge-m3 推理服务
    - 使用 chroma 作为向量数据库
 <!-- 3. **简单的 MCP** ([/test_mcp](/test_mcp)):
    - 参考 anthropic 官方 MCP 教程，开发 MCP Server 和 MCP Client -->
 3. **简单的 Qwen Agent** ([/test_qwen_agent](/test_qwen_agent)):
-   - 对 sqlite 进行 CRUD 操作
+   - 对 SQLite 进行 CRUD 操作
    - 对 Redis 进行 CRUD 操作
-   - 查询 postgresql 数据库
+   - 查询 PostgreSQL 数据库
+   - 查询 MySQL 数据库
    - 使用 Qwen Agent 调用 FastAPI
    - 运行模型编排 Demo
 4. **简单的 OpenAI Agent** ([/test_openai_agent](/test_openai_agent)):
@@ -33,6 +34,9 @@ MCP 只是 LLMs 生态中的一环，实现 MCP 需要多种前置服务的支�
 > [!NOTE]
 > 预研项目存放在以 `test_` 前缀命名的文件夹中。
 
-## [正式项目]
+## 正式项目
 
-to do ...
+Agents 为何强大
+
+
+

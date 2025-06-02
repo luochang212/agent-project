@@ -17,7 +17,7 @@ CUDA_VISIBLE_DEVICES=0 vllm serve "../model/Qwen/${model_name}" \
     --gpu-memory-utilization 0.98 \
     --tensor-parallel-size 1 \
     --enable-reasoning \
+    --reasoning-parser deepseek_r1 \
     --enable-auto-tool-choice \
     --tool-call-parser hermes \
-    --reasoning-parser deepseek_r1 \
     --api-key token-kcgyrk
