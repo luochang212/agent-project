@@ -1,6 +1,6 @@
-# mcp-project
+# agent-project
 
-MCP 实战
+Agent 实战
 
 ## 预研计划
 
@@ -35,3 +35,6 @@ MCP 实战
 > 预研项目存放在以 `test_` 前缀命名的文件夹中。
 
 ## 正式项目
+
+1. [智能路由](./2.intelligent_routing.ipynb)
+2. [NL2SQL](./3.nl2sql.ipynb)
