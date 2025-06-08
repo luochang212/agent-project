@@ -15,6 +15,7 @@ GitHub: [QwenLM/Qwen-Agent](https://github.com/QwenLM/Qwen-Agent)
 ├── 5.redis_bot.ipynb
 ├── 6.fastapi_bot.ipynb
 ├── 7.orchestrating_multiple_agents.ipynb
+├── 8.function_call.ipynb
 ├── README.md
 ├── assistant_mcp_sqlite_bot.py
 ├── fastapi_mcp_server.py
@@ -41,3 +42,4 @@ GitHub: [QwenLM/Qwen-Agent](https://github.com/QwenLM/Qwen-Agent)
 - `5.redis_bot.ipynb`: 使用 Qwen Agent 对 Redis 进行 CRUD 操作
 - `6.fastapi_bot.ipynb`: 使用 Qwen Agent 调用 FastAPI
 - `7.orchestrating_multiple_agents.ipynb`: 运行 Qwen Agent 模型编排 Demo
+- `8.function_call.ipynb`: Qwen Agent 的 function calling 示例

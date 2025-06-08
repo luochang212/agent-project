@@ -10,7 +10,9 @@ __pycache__
 /model/*/
 !/model/
 
-archived
+draft/test_copilotkit/my-copilot-app
+draft/test_mcp/mcp-client
+draft/test_mcp/weather
 
 # test_mcp/weather
 # test_mcp/mcp-client

@@ -6,9 +6,11 @@
 2. [Ollama](https://ollama.com/)
   - [bge-m3](https://huggingface.co/BAAI/bge-m3)
 
-<!-- - [LangChain](https://github.com/langchain-ai/langchain)
+<!-- 
+- [LangChain](https://github.com/langchain-ai/langchain)
 - [Chroma](https://github.com/chroma-core/chroma)
-- [Redis](https://github.com/redis/redis) -->
+- [Redis](https://github.com/redis/redis)
+-->
 
 ## 一、PostgreSQL
 
