@@ -180,6 +180,6 @@ if __name__ == '__main__':
     pgwf = PGWorkflow(llm_cfg, db_config)
 
     # 执行优化 SQL 查询的 workflow
-    query = "请在订单表中查询用户编号为102的用户的所有订单信息"
+    query = "请查询用户编号为102的用户的所有订单信息"
     answer = pgwf.workflow(query)
     print(answer)
