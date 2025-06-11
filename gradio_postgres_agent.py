@@ -1,9 +1,9 @@
 # -*- coding: utf-8 -*-
 
 """
-简单的 Agent
+Postgres Agent
 
-和本地 vLLM 服务提供的模型聊天，纯 LLM 无 MCP
+支持查询 Postgres 数据库
 
 使用方法:
 1. 下载 Qwen3 模型
@@ -11,13 +11,16 @@
     cd test_qwen3
     bash vllm_server.sh
 3. 启动 Gradio 应用：
-    python gradio_app.py
+    python gradio_postgres_agent.py
 4. 打开浏览器访问：
     http://localhost:7860/
+5. 可以尝试以下问题：
+    - 数据库中有哪些表
+    - 订单表包含哪些字段
 """
 
 from gradio_ui import create_ui
-from qwen_agent.agents import Assistant
+from postgres_agent import PGAgent
 
 
 # Qwen Agent 的 LLM 配置
@@ -32,15 +35,20 @@ LLM_CFG = {
 }
 
 
-def create_simple_bot(llm_cfg):
-    agent = Assistant(
-        llm=llm_cfg,
-        name='SimpleBot',
-        description='一个智能聊天机器人',
-        system_message="你是一个乐于助人的AI助手"
-    )
+def create_react_agent(llm_cfg):
+    # Postgres 数据库配置
+    db_config = {
+        "host": "localhost",
+        "port": "5432",
+        "database": "ecommerce_orders",
+        "user": "admin",
+        "password": "admin-password",
+    }
 
-    return agent.run_nonstream
+    # 实例化 Workflow
+    pga = PGAgent(llm_cfg, db_config)
+    react_agent = pga.create_react_agent()
+    return react_agent.run_nonstream
 
 
 def bot_decorator(bot, max_history=6):
@@ -52,7 +60,7 @@ def bot_decorator(bot, max_history=6):
     return decorator
 
 
-@bot_decorator(bot=create_simple_bot(LLM_CFG), max_history=6)
+@bot_decorator(bot=create_react_agent(LLM_CFG))
 def generate_response(message, history, bot, max_history):
     if not message.strip():
         return message, history
@@ -61,17 +69,16 @@ def generate_response(message, history, bot, max_history):
     messages = history[-max_history:] + messages  # 保留最后 max_history 条历史记录
     response = bot(messages)
 
-    content = response[-1].get("content").strip()
     history.append({"role": "user", "content": message})
-    history.append({"role": "assistant", "content": content})
+    history.append({"role": "assistant", "content": response.strip()})
     return "", history
 
 
 if __name__ == "__main__":
     model_name = LLM_CFG['model']
     demo = create_ui(llm_func=generate_response,
-                     tab_name="Gradio APP - LLM",
-                     main_title="Simple Agent Demo",
+                     tab_name="Gradio APP - Postgres Agent",
+                     main_title="Postgres Agent Demo",
                      sub_title=f"{model_name}")
     demo.launch(
         server_name="0.0.0.0",

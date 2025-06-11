@@ -54,12 +54,17 @@ html, body {
     --gray: #E5E5EA;
 }
 
+/* 全局样式覆盖 */
+.gradio-container {
+    background: #0b0f19 !important;
+}
+
 .dark .gradio-container {
     padding: 0;
     margin: 0;
     height: 100vh;
     display: flex;
-    flex-inputdirection: column;
+    flex-direction: column;
 }
 
 .layout {
@@ -168,18 +173,18 @@ html, body {
 """
 
 
-def create_ui(llm_func):
+def create_ui(llm_func, tab_name, main_title, sub_title):
     """创建聊天界面"""
     with gr.Blocks(
-        title="LLM Chat Interface",
+        title=tab_name,
         theme=gr.themes.Soft(primary_hue="blue", secondary_hue="blue"),
         css=custom_css
     ) as ui:
         # 标题区域
         gr.Markdown(
-            """
-            # <center>😈 Qwen Agent Demo</center>
-            <center><font size=3>Qwen3-0.6B-FP8</font></center>
+            f"""
+            # <center>{main_title}</center>
+            <center><font size=3>{sub_title}</font></center>
             """,
             elem_classes=["dark"]
         )
@@ -226,10 +231,13 @@ def create_ui(llm_func):
 
 
 if __name__ == "__main__":
-    demo = create_ui(llm_func=generate_response)
+    demo = create_ui(llm_func=generate_response,
+                     tab_name="Gradio APP - WebUI",
+                     main_title="Gradio WebUI Demo",
+                     sub_title="GitHub@luochang212")
     demo.launch(
         server_name="0.0.0.0",
         server_port=7860,
         show_api=False,
-        share=False
+        share=False  # 内部使用时，必须为 False
     )
