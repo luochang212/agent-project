@@ -4,9 +4,9 @@ Agent 实战
 
 ## 一、技术栈
 
-- **Frontend**: `Gradio`
-- **Backend**: `Qwen Agent`
-- **Database**: `PostgreSQL`/ `MySQL`
+- **前端**: `Gradio`
+- **后端**: `Qwen Agent`
+- **数据库**: `PostgreSQL`/ `MySQL`
 - **MCP**: `server-postgres`/ `mysql-mcp-server`
 
 ## 二、正式项目
@@ -16,7 +16,7 @@ Agent 实战
 
 ## 三、配置文件
 
-LLM 和 数据库 配置存储在 `.env` 文件中，按律不上传。它的格式如下：
+LLM 和 数据库 配置在 `.env` 文件中，按律不上传。它的格式如下：
 
 ```
 DB_HOST=localhost
@@ -35,7 +35,7 @@ DB_PASSWORD=admin-password
 1. 启动本地 LLM 服务，或者配置服务商的 API_KEY
 2. 安装 & 构造 Postgres 样例数据
 
-然后启动 Gradio：
+启动 Gradio：
 
 ```bash
 # 简单的聊天 APP，无 SQL 查询功能
