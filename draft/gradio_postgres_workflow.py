@@ -20,11 +20,10 @@ Postgres Workflow
 """
 
 from gradio_ui import create_ui
-from postgres_agent import PGAgent
 from postgres_workflow import PGWorkflow
 
 
-# LLM 配置
+# Qwen Agent 的 LLM 配置
 LLM_CFG = {
     'model': 'Qwen3-0.6B-FP8',
     'model_server': 'http://localhost:8000/v1',
@@ -36,49 +35,42 @@ LLM_CFG = {
 }
 
 
-# Postgres 数据库配置
-DB_CONFIG = {
-    "host": "localhost",
-    "port": "5432",
-    "database": "ecommerce_orders",
-    "user": "admin",
-    "password": "admin-password",
-}
+def create_workflow(llm_cfg):
+    # Postgres 数据库配置
+    db_config = {
+        "host": "localhost",
+        "port": "5432",
+        "database": "ecommerce_orders",
+        "user": "admin",
+        "password": "admin-password",
+    }
 
-
-def create_react_agent(llm_cfg, db_config):
     # 实例化 Workflow
-    pga = PGAgent(llm_cfg, db_config)
-    react_agent = pga.create_react_agent()
-    return react_agent
+    pgwf = PGWorkflow(llm_cfg, db_config)
+    return pgwf.workflow
 
 
-pgwf = PGWorkflow(LLM_CFG, DB_CONFIG)
-my_bot = create_react_agent(LLM_CFG, DB_CONFIG)
+def bot_decorator(bot, max_history=6):
+    """将 bot 绑定到目标函数"""
+    def decorator(func):
+        def wrapper(message, history):
+            return func(message, history, bot, max_history)
+        return wrapper
+    return decorator
 
 
-def generate_response(message, history, max_history=4):
+@bot_decorator(bot=create_workflow(LLM_CFG))
+def generate_response(message, history, bot, max_history):
     if not message.strip():
         return message, history
 
     messages = [{'role': 'user', 'content': message}]
-
-    # 保留最后 max_history 条历史记录
-    messages = history[-max_history:] + messages
+    messages = history[-max_history:] + messages  # 保留最后 max_history 条历史记录
+    response = bot(messages)
 
     history.append({"role": "user", "content": message})
-    history.append({"role": "assistant", "content": "工作流运行中 ..."})
-
-    # 注入 context 后的 messages
-    messages = pgwf.workflow(messages)
-
-    # 流式响应
-    for chunk in my_bot.run(messages):
-        content = chunk[-1].get("content", "")
-        history[-1]["content"] = content
-        yield "", history
-
-    yield "", history
+    history.append({"role": "assistant", "content": response.strip()})
+    return "", history
 
 
 if __name__ == "__main__":

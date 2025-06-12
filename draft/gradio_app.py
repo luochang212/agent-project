@@ -40,31 +40,31 @@ def create_simple_bot(llm_cfg):
         system_message="你是一个乐于助人的AI助手"
     )
 
-    return agent
+    return agent.run_nonstream
 
 
-my_bot = create_simple_bot(LLM_CFG)
+def bot_decorator(bot, max_history=6):
+    """将 bot 绑定到目标函数"""
+    def decorator(func):
+        def wrapper(message, history):
+            return func(message, history, bot, max_history)
+        return wrapper
+    return decorator
 
 
-def generate_response(message, history, max_history=6):
+@bot_decorator(bot=create_simple_bot(LLM_CFG), max_history=6)
+def generate_response(message, history, bot, max_history):
     if not message.strip():
         return message, history
 
     messages = [{'role': 'user', 'content': message}]
+    messages = history[-max_history:] + messages  # 保留最后 max_history 条历史记录
+    response = bot(messages)
 
-    # 保留最后 max_history 条历史记录
-    messages = history[-max_history:] + messages
-
+    content = response[-1].get("content").strip()
     history.append({"role": "user", "content": message})
-    history.append({"role": "assistant", "content": ""})
-
-    # 流式响应
-    for chunk in my_bot.run(messages):
-        content = chunk[-1].get("content", "")
-        history[-1]["content"] = content
-        yield "", history
-
-    yield "", history
+    history.append({"role": "assistant", "content": content})
+    return "", history
 
 
 if __name__ == "__main__":
