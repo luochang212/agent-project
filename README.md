@@ -58,7 +58,7 @@ python gradio_postgres_workflow.py
 - 查询一下订单1004的物流状态
 - 查询uid为104的用户的所有订单的物流状态
 
-## 五、预研项目
+## 五、预研计划
 
 [MCP](https://github.com/modelcontextprotocol/servers) 只是 LLMs 生态中的一环，实现 MCP 需要多种前置服务的支持（比如 vLLM, LangChain）。为了事先了解这些可能我也很陌生的服务，我必须像 Agent 一样，将任务拆分成多个子任务，再逐个进行预研。
 
