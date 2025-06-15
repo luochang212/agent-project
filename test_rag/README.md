@@ -1,4 +1,4 @@
-# 简单的 RAG
+# 基于 LangChain 实现 RAG
 
 文件结构如下：
 
