@@ -71,8 +71,6 @@ python gradio_postgres_workflow.py
    - 基于 LangChain 开发 RAG
    - 开发 bge-m3 推理服务
    - 使用 chroma 作为向量数据库
-<!-- 3. **简单的 MCP** ([/test_mcp](/test_mcp)):
-   - 参考 anthropic 官方 MCP 教程，开发 MCP Server 和 MCP Client -->
 3. **简单的 Qwen Agent** ([/test_qwen_agent](/test_qwen_agent)):
    - 对 SQLite 进行 CRUD 操作
    - 对 Redis 进行 CRUD 操作
@@ -92,6 +90,7 @@ python gradio_postgres_workflow.py
 
 ## 六、开发日志
 
+- [x] [intelligent_routing](./intelligent_routing) Python Package
 - [x] [Postgres](./postgres_client.py) / [MySQL](./mysql_client.py) 数据库元数据查询工具
 - [x] [Postgres](./postgres_tool.py) / [MySQL](./mysql_tool.py) Qwen Agent 函数调用 Function Calling
 - [x] [Postgres](./postgres_agent.py) / [MySQL](./mysql_agent.py) 带查询功能的简单 Agent（非流式输出）
